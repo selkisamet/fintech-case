@@ -2,6 +2,7 @@ export const theme = {
     colors: {
         primary: "#c8ee44",
         secondary: "#29A073",
+        light: "#FFFFFF",
         darkish: "#363A3F",
 
         gray: {
@@ -26,10 +27,10 @@ export const theme = {
         },
 
         fontSize: {
-            xs: "14px",
-            sm: "14px",
-            base: "16px",
-            xl: "30px",
+            xs: "1.2rem",
+            sm: "1.4rem",
+            base: "1.6rem",
+            xl: "3rem",
         },
 
         fontWeight: {

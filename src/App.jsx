@@ -1,27 +1,18 @@
-import { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { theme } from './styles/theme';
+import Button from './components/atoms/Button/Button';
 
 function App() {
-  const [currentTheme] = useState(theme);
-
   return (
-    <ThemeProvider theme={currentTheme}>
+    <ThemeProvider theme={theme}>
       <GlobalStyles />
 
-      <div style={{ display: 'flex', gap: "10px" }}>
-        <div style={{ height: "100px", width: "100px", background: currentTheme.colors.primary }}>
-          1
-        </div>
+      <div style={{ padding: '2rem' }}>
+        <h1 style={{ marginBottom: '2rem' }}>Button Component Test</h1>
 
-        <div style={{ height: "100px", width: "100px", background: currentTheme.colors.primary }}>
-          2
-        </div>
-
-        <div style={{ height: "100px", width: "100px", background: currentTheme.colors.primary }}>
-          3
-        </div>
+        <Button variant="primary" fullWidth>Create Account</Button>
+        <Button variant="social" fullWidth>Sign up with google</Button>
       </div>
     </ThemeProvider>
   );
