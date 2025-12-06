@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from './styles/GlobalStyles';
+import { theme } from './styles/theme';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentTheme] = useState(theme);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <ThemeProvider theme={currentTheme}>
+      <GlobalStyles />
+
+      <div style={{ display: 'flex', gap: "10px" }}>
+        <div style={{ height: "100px", width: "100px", background: currentTheme.colors.primary }}>
+          1
+        </div>
+
+        <div style={{ height: "100px", width: "100px", background: currentTheme.colors.primary }}>
+          2
+        </div>
+
+        <div style={{ height: "100px", width: "100px", background: currentTheme.colors.primary }}>
+          3
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
