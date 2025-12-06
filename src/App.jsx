@@ -2,6 +2,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { theme } from './styles/theme';
 import Button from './components/atoms/Button/Button';
+import GoogleIcon from './assets/icons/google.svg';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <h1 style={{ marginBottom: '2rem' }}>Button Component Test</h1>
 
         <Button variant="primary" fullWidth>Create Account</Button>
-        <Button variant="social" fullWidth>Sign up with google</Button>
+        <Button variant="social" fullWidth icon={<img src={GoogleIcon} alt="google" width="24" />}>Sign up with google</Button>
       </div>
     </ThemeProvider>
   );

@@ -29,8 +29,8 @@ export const StyledButton = styled.button`
         $variant === "social" &&
         css`
       background-color: ${theme.colors.light};
-      color: #000;
-      border: 0.1rem solid #ddd;
+      color: ${theme.colors.text.text3};
+      border: 0.1rem solid ${theme.colors.gray.gray3};
       display: flex;
       align-items: center;
       justify-content: center;
@@ -38,6 +38,11 @@ export const StyledButton = styled.button`
 
       &:hover {
         background: ${theme.colors.gray.gray3};
+      }
+
+      img{
+        height: 2.4rem;
+        width: 2.4rem;
       }
     `}
 `;
