@@ -8,9 +8,6 @@ export const InputContainer = styled.div`
   flex-direction: column;
 `;
 
-
-
-// Base input styles
 export const StyledInput = styled.input`
   width: 100%;
   font-family: ${theme.typography.fontFamily.primary};
@@ -19,27 +16,23 @@ export const StyledInput = styled.input`
   color: ${theme.colors.text.text3};
   background-color: ${theme.colors.light};
   border: 0.1rem solid ${theme.colors.gray.gray5};
-  padding: 1.6rem 1.6rem 2rem;
+  padding: 1.6rem 2rem;
   border-radius: 1rem;
   outline: none;
   
-  /* Placeholder styles */
   &::placeholder {
     color: ${({ theme }) => theme.colors.text.text2};
   }
   
-  /* Focus state */
   &:focus {
     border-color: ${theme.colors.gray.gray6};
     box-shadow: 0 0 0 0.3rem ${theme.colors.gray.gray4};
   }
   
-  /* Hover state */
   &:hover:not(:disabled):not(:focus) {
     border-color: ${theme.colors.gray.gray6}
   }
   
-  /* Disabled state */
   &:disabled {
     background-color: ${theme.colors.gray.gray2};
     color: ${theme.colors.text.text2};
@@ -61,8 +54,6 @@ export const StyledInput = styled.input`
     `}
 `;
 
-
-// Error message
 export const ErrorMessage = styled.span`
   display: block;
   margin-top: 1rem;

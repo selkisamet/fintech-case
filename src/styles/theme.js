@@ -39,10 +39,5 @@ export const theme = {
             medium: 500,
             semibold: 600,
         },
-
-        lineHeight: {
-            normal: 1.5,
-            tight: 1.2,
-        },
     },
 };

@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { theme } from '../../../styles/theme';
 
-// Styled button component
 export const StyledButton = styled.button`
   padding: 1.4rem 2rem;
   border-radius: 1rem;
@@ -10,12 +9,12 @@ export const StyledButton = styled.button`
   width: ${({ $fullWidth }) => ($fullWidth ? "100%" : "auto")};
   cursor: pointer;
   border: none;
-  font-weight: 600;
+  font-weight: ${theme.typography.fontWeight.semibold};
   transition: all 0.3s ease;
 
   ${({ $variant }) =>
-        $variant === "primary" &&
-        css`
+    $variant === "primary" &&
+    css`
       background-color: ${theme.colors.primary};
       color: ${theme.colors.text.text1};
 
@@ -26,8 +25,8 @@ export const StyledButton = styled.button`
     `}
 
   ${({ $variant }) =>
-        $variant === "social" &&
-        css`
+    $variant === "social" &&
+    css`
       background-color: ${theme.colors.light};
       color: ${theme.colors.text.text3};
       border: 0.1rem solid ${theme.colors.gray.gray3};

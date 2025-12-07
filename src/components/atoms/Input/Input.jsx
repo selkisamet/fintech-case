@@ -1,7 +1,4 @@
-import React from 'react'
-import {
-    InputContainer, StyledInput, ErrorMessage,
-} from './Input.styles'
+import { InputContainer, StyledInput, ErrorMessage, } from './Input.styles';
 
 const Input = ({ type = 'text', value, onChange, placeholder, disabled = false, error = false, errorMessage, id, name, required = false, ...rest }) => {
     return (
