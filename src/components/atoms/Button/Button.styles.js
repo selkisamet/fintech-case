@@ -4,7 +4,7 @@ import { theme } from '../../../styles/theme';
 export const StyledButton = styled.button`
   padding: 1.4rem 2rem;
   border-radius: 1rem;
-  font-size: ${theme.typography.fontSize.base};
+  font-size: ${theme.typography.fontSize.md};
   height: 4.8rem;
   width: ${({ $fullWidth }) => ($fullWidth ? "100%" : "auto")};
   cursor: pointer;

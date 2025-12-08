@@ -11,7 +11,7 @@ export const InputContainer = styled.div`
 export const StyledInput = styled.input`
   width: 100%;
   font-family: ${theme.typography.fontFamily.primary};
-  font-size: ${theme.typography.fontSize.base};
+  font-size: ${theme.typography.fontSize.md};
   font-weight: ${theme.typography.fontWeight.medium};
   color: ${theme.colors.text.text3};
   background-color: ${theme.colors.light};

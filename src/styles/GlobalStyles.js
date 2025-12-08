@@ -19,7 +19,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: ${({ theme }) => theme.typography.fontFamily.primary};
-    font-size: ${({ theme }) => theme.typography.fontSize.base};
+    font-size: ${({ theme }) => theme.typography.fontSize.md};
     font-weight: ${({ theme }) => theme.typography.fontWeight.regular};
     color: ${({ theme }) => theme.colors.text.text1};
     background-color: #ffffff;
@@ -32,7 +32,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   h1 {
-    font-size: ${({ theme }) => theme.typography.fontSize.xl};
+    font-size: ${({ theme }) => theme.typography.fontSize.lg};
   }
 
   a {
