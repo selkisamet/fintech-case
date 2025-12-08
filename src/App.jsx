@@ -1,7 +1,8 @@
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { theme } from './styles/theme';
-import Text from './components/atoms/Text/Text';
+import Button from './components/atoms/Button/Button';
+import Spinner from './components/atoms/Spinner/Spinner';
 
 function App() {
   return (
@@ -9,80 +10,127 @@ function App() {
       <GlobalStyles />
 
       <div style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+        <h1 style={{ marginBottom: '2rem' }}>Spinner Component Test</h1>
+
         <div style={{ marginBottom: '3rem' }}>
-          <Text variant="heading1" as="h1">Heading 1 - Fintech Platform</Text>
-          <Text variant="heading2" as="h2" style={{ marginTop: '1rem' }}>Heading 2 - Dashboard Overview</Text>
-          <Text variant="heading3" as="h3" style={{ marginTop: '1rem' }}>Heading 3 - Monthly Report</Text>
-          <Text variant="heading4" as="h4" style={{ marginTop: '1rem' }}>Heading 4 - Section Title</Text>
+          <h2 style={{ marginBottom: '1rem', fontSize: '1.25rem' }}>Sizes</h2>
+          <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+            <div>
+              <Spinner size="small" />
+              <p style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>Small (16px)</p>
+            </div>
+            <div>
+              <Spinner size="medium" />
+              <p style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>Medium (24px)</p>
+            </div>
+            <div>
+              <Spinner size="large" />
+              <p style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>Large (40px)</p>
+            </div>
+            <div>
+              <Spinner size={60} />
+              <p style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>Custom (60px)</p>
+            </div>
+          </div>
         </div>
 
         <div style={{ marginBottom: '3rem' }}>
-          <Text variant="subtitle1">Subtitle 1 - This is a larger subtitle text</Text>
+          <h2 style={{ marginBottom: '1rem', fontSize: '1.25rem' }}>Colors</h2>
+          <div style={{ display: 'flex', gap: '2rem', alignItems: 'center', flexWrap: 'wrap' }}>
+            <div>
+              <Spinner color="primary" />
+              <p style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>Primary</p>
+            </div>
+            <div>
+              <Spinner color="secondary" />
+              <p style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>Secondary</p>
+            </div>
+            <div>
+              <Spinner color="success" />
+              <p style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>Success</p>
+            </div>
+            <div>
+              <Spinner color="error" />
+              <p style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>Error</p>
+            </div>
+            <div>
+              <Spinner color="#FF6B9D" />
+              <p style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>Custom (Pink)</p>
+            </div>
+          </div>
         </div>
 
         <div style={{ marginBottom: '3rem' }}>
-          <Text variant="caption" style={{ marginTop: '1rem' }}>
-            Caption - Very small text for captions, footnotes, and fine print.
-          </Text>
+          <h2 style={{ marginBottom: '1rem', fontSize: '1.25rem' }}>Thickness</h2>
+          <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+            <div>
+              <Spinner size="large" thickness={2} />
+              <p style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>Thin (2px)</p>
+            </div>
+            <div>
+              <Spinner size="large" thickness={4} />
+              <p style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>Normal (4px)</p>
+            </div>
+            <div>
+              <Spinner size="large" thickness={6} />
+              <p style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>Thick (6px)</p>
+            </div>
+          </div>
         </div>
 
         <div style={{ marginBottom: '3rem' }}>
-          <Text variant="body1">
-            Body 1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-          </Text>
-          <Text variant="body2" style={{ marginTop: '1rem' }}>
-            Body 2 - Smaller body text for secondary content.
-            This is commonly used for descriptions and less important information.
-          </Text>
-          <Text variant="caption" style={{ marginTop: '1rem' }}>
-            Caption - Very small text for captions, footnotes, and fine print.
-          </Text>
+          <h2 style={{ marginBottom: '1rem', fontSize: '1.25rem' }}>Speed</h2>
+          <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+            <div>
+              <Spinner size="large" speed="fast" />
+              <p style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>Fast (0.6s)</p>
+            </div>
+            <div>
+              <Spinner size="large" speed="normal" />
+              <p style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>Normal (0.8s)</p>
+            </div>
+            <div>
+              <Spinner size="large" speed="slow" />
+              <p style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>Slow (1.2s)</p>
+            </div>
+          </div>
         </div>
 
         <div style={{ marginBottom: '3rem' }}>
-          <Text variant="heading3" as="h3" style={{ marginBottom: '1rem' }}>Color Variants</Text>
-          <Text color="primary">Primary text color (default)</Text>
-          <Text color="secondary">Secondary text color</Text>
-          <Text color="disabled">Disabled text color</Text>
-          <Text color="error">Error text color</Text>
-          <Text color="success">Success text color</Text>
-          <Text color="warning">Warning text color</Text>
-          <Text color="brand">Brand color text</Text>
-          <Text customColor="#FF6B9E">Custom color text (pink)</Text>
+          <h2 style={{ marginBottom: '1rem', fontSize: '1.25rem' }}>
+            Spinner in Button (Loading State)
+          </h2>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <Button $isLoading>
+              <Spinner size="small" color="white" thickness={2} style={{ marginRight: '0.5rem' }} /> Loading...
+            </Button>
+            <Button variant="secondary" $isLoading>Processing</Button>
+            <Button variant="outline" $isLoading>Submitting</Button>
+          </div>
         </div>
 
         <div style={{ marginBottom: '3rem' }}>
-          <Text variant="heading3" as="h3" style={{ marginBottom: '1rem' }}>Text Alignment</Text>
-          <Text align="left" style={{ marginBottom: '0.5rem' }}>Left aligned text (default)</Text>
-          <Text align="center" style={{ marginBottom: '0.5rem' }}>Center aligned text</Text>
-          <Text align="right" style={{ marginBottom: '0.5rem' }}>Right aligned text</Text>
-          <Text align="justify">Justify aligned text - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
+          <h2 style={{ marginBottom: '1rem', fontSize: '1.25rem' }}>
+            Centered Loading (Page Loading Scenario)
+          </h2>
+          <div style={{ height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: theme.colors.secondary, borderRadius: '1rem' }}>
+            <div style={{ textAlign: 'center' }}>
+              <Spinner size="large" />
+              <p style={{ marginTop: '1rem', color: theme.colors.text.secondary, fontSize: '0.875rem' }}>
+                Loading data...
+              </p>
+            </div>
+          </div>
         </div>
 
         <div style={{ marginBottom: '3rem' }}>
-          <Text variant="heading3" as="h3" style={{ marginBottom: '1rem' }}>Font Weight Override</Text>
-          <Text weight="light">Light weight text (300)</Text>
-          <Text weight="regular">Regular weight text (400)</Text>
-          <Text weight="medium">Medium weight text (500)</Text>
-          <Text weight="semibold">Semibold weight text (600)</Text>
-          <Text weight="bold">Bold weight text (700)</Text>
-        </div>
-
-        <div style={{ marginBottom: '3rem' }}>
-          <Text variant="heading3" as="h3" style={{ marginBottom: '1rem' }}>Polymorphic Component (Same style, different HTML tags)</Text>
-          <Text as="p">This is rendered as a &lt;p&gt; tag</Text>
-          <Text as="div">This is rendered as a &lt;div&gt; tag</Text>
-          <Text as="span">This is rendered as a &lt;span&gt; tag</Text>
-          <Text as="strong">This is rendered as a &lt;strong&gt; tag</Text>
-        </div>
-
-        <div style={{ padding: '2rem', backgroundColor: theme.colors.primary }}>
-          <Text variant="heading2" as="h2" style={{ marginBottom: '0.5rem' }}>Welcome to Fintech</Text>
-          <Text variant="subtitle1" color="secondary" style={{ marginBottom: '1.5rem' }}>Track your finances with ease</Text>
-          <Text variant="body1" style={{ marginBottom: '1rem' }}>Our platform helps you manage your financial transactions, monitor your total balance, and track your business capital efficiently.</Text>
-          <Text variant="caption" color="secondary">Last updated: 2 minutes ago</Text>
+          <h2 style={{ marginBottom: '1rem', fontSize: '1.25rem' }}>
+            Inline Spinner with Text
+          </h2>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <Spinner size="small" />
+            <span>Fetching latest data...</span>
+          </div>
         </div>
       </div>
     </ThemeProvider>
