@@ -21,11 +21,11 @@ export const HelperText = styled.span`
   line-height: 100%;
   
   color: ${({ theme, $variant }) => {
-        if ($variant === 'error') return theme.colors.error;
-        if ($variant === 'success') return theme.colors.success;
-        if ($variant === 'info') return theme.colors.text.text1;
-        return theme.colors.text.text1;
-    }};
+    if ($variant === 'error') return theme.colors.error;
+    if ($variant === 'success') return theme.colors.success;
+    if ($variant === 'info') return theme.colors.text.text1;
+    return theme.colors.text.text1;
+  }};
   
   animation: slideDown 0.2s ease-out;
   
