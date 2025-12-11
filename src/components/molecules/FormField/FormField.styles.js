@@ -18,6 +18,7 @@ export const HelperText = styled.span`
   font-size: ${theme.typography.fontSize.sm};
   font-weight: ${theme.typography.fontWeight.regular};
   line-height: 100%;
+  margin-top: 1rem;
   
   color: ${({ theme, $variant }) => {
     if ($variant === 'error') return theme.colors.error;
