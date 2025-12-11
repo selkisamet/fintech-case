@@ -13,17 +13,8 @@ const Button = ({
     ...props
 }) => {
     return (
-        <StyledButton
-            $variant={variant}
-            $size={size}
-            $fullWidth={fullWidth}
-            $loading={loading}
-            disabled={disabled || loading}
-            type={type}
-            onClick={onClick}
-            {...props}
-        >
-            {loading && <Spinner size="small" />}
+        <StyledButton $variant={variant} $size={size} $fullWidth={fullWidth} $loading={loading} disabled={disabled || loading} type={type} onClick={onClick} {...props}>
+            {loading && <Spinner size="small" color='light' />}
             {children}
         </StyledButton>
     );

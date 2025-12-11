@@ -95,6 +95,7 @@ const LoginForm = ({ onSuccess }) => {
                     error={!!errors.email}
                     errorMessage={errors.email}
                     placeholder="Enter your email"
+                    disabled={isLoading}
                 />
 
                 <FormField
@@ -106,6 +107,7 @@ const LoginForm = ({ onSuccess }) => {
                     error={!!errors.password}
                     errorMessage={errors.password}
                     placeholder="Enter your password"
+                    disabled={isLoading}
                 />
             </FormFields>
 

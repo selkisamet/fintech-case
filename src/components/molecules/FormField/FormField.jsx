@@ -9,62 +9,41 @@ import {
 
 const FormField = ({
     label,
-    name,
-    id,
     type = 'text',
+    name,
     value,
     onChange,
-    placeholder,
-    error = false,
+    error,
     errorMessage,
-    helperText,
-    required = false,
+    placeholder,
+    required,
     disabled = false,
+    leftIcon,
     rightIcon,
-    noMargin = false,
-    ...rest
+    id,
 }) => {
     const fieldId = id || name || `field-${Math.random().toString(36).substr(2, 9)}`;
 
     return (
-        <FormFieldContainer $noMargin={noMargin}>
+        <FormFieldContainer>
             {label && (
-                <Label
-                    htmlFor={fieldId}
-                    required={required}
-                    disabled={disabled}>
+                <Label htmlFor={fieldId} required={required}>
                     {label}
                 </Label>
             )}
-
             <Input
                 id={fieldId}
-                name={name}
                 type={type}
+                name={name}
                 value={value}
                 onChange={onChange}
-                placeholder={placeholder}
                 error={error}
-                disabled={disabled}
+                placeholder={placeholder}
+                leftIcon={leftIcon}
                 rightIcon={rightIcon}
-                required={required}
-                {...rest} />
-
-            {(error && errorMessage) && (
-                <HelperTextContainer>
-                    <HelperText $variant="error">
-                        {errorMessage}
-                    </HelperText>
-                </HelperTextContainer>
-            )}
-
-            {(!error && helperText) && (
-                <HelperTextContainer>
-                    <HelperText $variant="info">
-                        {helperText}
-                    </HelperText>
-                </HelperTextContainer>
-            )}
+                disabled={disabled}  // ← EKLE
+            />
+            {error && errorMessage && <HelperText $variant="error">{errorMessage}</HelperText>}
         </FormFieldContainer>
     );
 };

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import LoginForm from '../../components/organisms/LoginForm';
 import Logo from '../../components/atoms/Logo';
 import {
@@ -9,8 +10,10 @@ import {
 } from './LoginPage.styles';
 
 const LoginPage = () => {
+    const navigate = useNavigate();
+
     const handleLoginSuccess = () => {
-        alert('Login successful! Dashboard coming soon...');
+        navigate('/dashboard');
     };
 
     return (
