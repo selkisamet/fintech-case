@@ -2,68 +2,51 @@ import api from './api';
 
 export const login = async (email, password) => {
     try {
-        const response = await api.post('/users/login', {
-            email,
-            password,
-        });
+        const response = await api.post('/users/login', { email, password });
+        const { accessToken, user } = response.data.data;
 
-        const { token, user } = response.data.data;
-
-        localStorage.setItem('authToken', token);
+        localStorage.setItem('authToken', accessToken);
         localStorage.setItem('user', JSON.stringify(user));
 
-        return { success: true, data: response.data.data };
+        return { success: true, data: { token: accessToken, user } };
     } catch (error) {
-        const message = error.response?.data?.message || 'Login failed';
-        return { success: false, error: message };
+        return {
+            success: false,
+            error: error.response?.data?.message || 'Login failed'
+        };
     }
 };
 
 export const register = async (name, email, password) => {
     try {
         const response = await api.post('/users/register', {
-            name,
+            fullName: name,
             email,
-            password,
+            password
         });
+        const { accessToken, user } = response.data.data;
 
-        const { token, user } = response.data.data;
-
-        localStorage.setItem('authToken', token);
+        localStorage.setItem('authToken', accessToken);
         localStorage.setItem('user', JSON.stringify(user));
 
-        return { success: true, data: response.data.data };
+        return { success: true, data: { token: accessToken, user } };
     } catch (error) {
-        const message = error.response?.data?.message || 'Registration failed';
-        return { success: false, error: message };
+        return {
+            success: false,
+            error: error.response?.data?.message || 'Registration failed'
+        };
     }
 };
 
 export const logout = async () => {
     try {
         await api.post('/users/logout');
-    } catch (error) {
-        console.error('Logout error:', error);
-    } finally {
         localStorage.removeItem('authToken');
         localStorage.removeItem('user');
-        window.location.href = '/login';
-    }
-};
-
-export const getCurrentUser = () => {
-    const userStr = localStorage.getItem('user');
-    if (!userStr) return null;
-
-    try {
-        return JSON.parse(userStr);
+        return { success: true };
     } catch (error) {
-        console.error('Error parsing user:', error);
-        return null;
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('user');
+        return { success: false, error: error.response?.data?.message };
     }
-};
-
-export const isAuthenticated = () => {
-    const token = localStorage.getItem('authToken');
-    return !!token;
 };

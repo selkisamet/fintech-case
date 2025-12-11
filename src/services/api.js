@@ -10,45 +10,42 @@ const api = axios.create({
     },
 });
 
+// Request interceptor - Add token to headers
 api.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem('authToken');
 
+        console.log('Request:', config.method.toUpperCase(), config.url);
+
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
+            console.log('Token added to request');
+        } else {
+            console.log('No token found in localStorage');
         }
-
-        console.log('🚀 Request:', config.method.toUpperCase(), config.url);
 
         return config;
     },
     (error) => {
-        console.error('❌ Request Error:', error);
+        console.error('Request Error:', error);
         return Promise.reject(error);
     }
 );
 
+// Response interceptor - Handle errors
 api.interceptors.response.use(
     (response) => {
         console.log('✅ Response:', response.status, response.config.url);
         return response;
     },
     (error) => {
-        console.error('❌ Response Error:', error.response?.status, error.config?.url);
+        console.error('Response Error:', error.response?.status, error.config?.url);
 
         if (error.response?.status === 401) {
+            console.log('Unauthorized - Clearing auth data');
             localStorage.removeItem('authToken');
             localStorage.removeItem('user');
-
             window.location.href = '/login';
-        }
-
-        if (error.response?.status === 403) {
-            console.error('Access denied');
-        }
-
-        if (error.response?.status === 500) {
-            console.error('Server error');
         }
 
         return Promise.reject(error);
