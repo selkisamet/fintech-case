@@ -3,9 +3,6 @@ import { theme } from '../../../styles/theme';
 
 export const FormContainer = styled.form`
   width: 100%;
-  max-width: 42rem;
-  margin: 0 auto;
-  padding: 3.2rem;
   border-radius: 1rem;
 `;
 
