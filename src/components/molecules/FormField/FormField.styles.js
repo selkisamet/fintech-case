@@ -5,7 +5,6 @@ export const FormFieldContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: ${({ $noMargin }) => $noMargin ? '0' : "3rem"};
 `;
 
 export const HelperTextContainer = styled.div`

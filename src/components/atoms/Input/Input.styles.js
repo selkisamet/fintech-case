@@ -11,12 +11,12 @@ export const InputContainer = styled.div`
 export const StyledInput = styled.input`
   width: 100%;
   font-family: ${theme.typography.fontFamily.primary};
-  font-size: ${theme.typography.fontSize.md};
+  font-size: ${theme.typography.fontSize.sm};
   font-weight: ${theme.typography.fontWeight.medium};
   color: ${theme.colors.text.text3};
   background-color: ${theme.colors.light};
   border: 0.1rem solid ${theme.colors.gray.gray5};
-  padding: 1.6rem 2rem;
+  padding: 1.5rem 2rem;
   border-radius: 1rem;
   outline: none;
   
