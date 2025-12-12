@@ -27,7 +27,7 @@ const variantStyles = {
   `,
 
   body1: css`
-    font-size: ${theme.typography.fontSize.base};
+    font-size: ${theme.typography.fontSize.md};
     font-weight: ${theme.typography.fontWeight.regular};
     line-height: 100%;
   `,
@@ -54,6 +54,14 @@ const variantStyles = {
 const colorStyles = {
   primary: css`
     color: ${theme.colors.text.text1};
+  `,
+
+  light: css`
+    color: ${theme.colors.light};
+  `,
+
+  gray: css`
+    color: ${theme.colors.gray.gray3};
   `,
 
   secondary: css`

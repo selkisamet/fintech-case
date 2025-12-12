@@ -13,10 +13,8 @@ export const IconContainer = styled.div`
   font-size: 1.5rem;
   transition: all 0.3s ease;
 
-  svg {
-    width: 1.5rem;
-    height: 1.5rem;
-    fill: ${theme.colors.darkish};
+  svg{
+    color: ${theme.colors.darkish};
   }
 `;
 
@@ -30,7 +28,7 @@ export const CardTitle = styled.h3`
 `;
 
 export const CardAmount = styled.p`
-  margin-top: 1rem;
+  margin-top: 1.3rem;
   font-size:2.4rem;
   font-weight: ${theme.typography.fontWeight.bold};
   color: ${theme.colors.text.text1};
@@ -65,8 +63,8 @@ export const StyledCard = styled.div`
   padding: 2.4rem 2rem;
   border-radius: 1rem;
   background-color: ${theme.colors.gray.gray2};
-  border: 1px solid ${theme.colors.light};
   transition: all 0.3s ease;
+  cursor: pointer;
 
   &:active{
     background-color: ${theme.colors.darkish};
@@ -89,12 +87,7 @@ export const StyledCard = styled.div`
         box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
         border-color: ${theme.colors.darkish};
         background-color: ${theme.colors.darkish};
-        
-        /* Card Title renk değişimi */
-        ${CardTitle} {
-          color: ${theme.colors.light};
-        }
-        
+ 
         /* Card Amount renk değişimi - YENİ */
         ${CardAmount} {
           color: ${theme.colors.light};
@@ -105,9 +98,11 @@ export const StyledCard = styled.div`
           background-color: #4E5257;
 
           svg{
-            fill: ${theme.colors.primary};
+            color: ${theme.colors.primary};
           }
         }
+
+       
         
       }
     `}

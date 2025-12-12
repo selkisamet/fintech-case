@@ -8,7 +8,7 @@ export const StyledButton = styled.button`
   justify-content: center;
   gap: 0.8rem;
   padding: 1.4rem 2rem !important;
-  font-size: ${theme.typography.fontSize.base};
+  font-size: ${theme.typography.fontSize.md};
   font-weight: ${theme.typography.fontWeight.bold};
   font-family: ${theme.typography.fontFamily};
   border: none;
