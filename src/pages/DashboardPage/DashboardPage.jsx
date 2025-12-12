@@ -48,7 +48,7 @@ const DashboardPage = () => {
                     <Title>Dashboard</Title>
                     <div>
                         <span style={{ marginRight: '2rem', color: '#78778b' }}>
-                            Welcome, {user?.name || 'User'}
+                            Welcome, {user?.fullName || 'User'}
                         </span>
                         <Button variant="outline" size="small" onClick={handleLogout}>
                             Logout
@@ -61,19 +61,28 @@ const DashboardPage = () => {
                 <Card
                     icon={<IconWallet />}
                     title="Total Balance"
-                    amount={stats?.totalBalance ? `$${stats.totalBalance}` : '$0'}
+                    amount={stats?.totalBalance?.amount
+                        ? `${stats.totalBalance.currency === 'TRY' ? '₺' : '$'}${stats.totalBalance.amount.toLocaleString()}`
+                        : '₺0'
+                    }
                     hoverable
                 />
                 <Card
                     icon={<IconWallet />}
-                    title="Total Spending"
-                    amount={stats?.totalSpending ? `$${stats.totalSpending}` : '$0'}
+                    title="Total Expense"
+                    amount={stats?.totalExpense?.amount
+                        ? `${stats.totalExpense.currency === 'TRY' ? '₺' : '$'}${stats.totalExpense.amount.toLocaleString()}`
+                        : '₺0'
+                    }
                     hoverable
                 />
                 <Card
                     icon={<IconWallet />}
-                    title="Total Saved"
-                    amount={stats?.totalSaved ? `$${stats.totalSaved}` : '$0'}
+                    title="Total Savings"
+                    amount={stats?.totalSavings?.amount
+                        ? `${stats.totalSavings.currency === 'TRY' ? '₺' : '$'}${stats.totalSavings.amount.toLocaleString()}`
+                        : '₺0'
+                    }
                     hoverable
                 />
             </StatsGrid>
