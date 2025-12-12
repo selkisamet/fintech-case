@@ -14,7 +14,7 @@ export const FormTitle = styled.h2`
 `;
 
 export const FormSubtitle = styled.p`
-  font-size: ${theme.typography.fontSize.base};
+  font-size: ${theme.typography.fontSize.md};
   color: ${theme.colors.text.text2};
   margin-bottom: 3.2rem;
 `;
