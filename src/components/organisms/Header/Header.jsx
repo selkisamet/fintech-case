@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useAuth } from '../../../context/AuthContext';
 import IconSearch from '../../icons/IconSearch';
 import IconNotification from '../../icons/IconNotification';
@@ -14,10 +15,22 @@ import {
     UserInfo,
     UserAvatar,
     UserName,
+    DropdownMenu,
+    DropdownItem,
 } from './Header.styles';
 
 const Header = ({ title, subtitle }) => {
-    const { user } = useAuth();
+    const { user, logout } = useAuth();
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    const handleLogout = () => {
+        logout();
+        setIsDropdownOpen(false);
+    };
 
     return (
         <HeaderContainer>
@@ -36,10 +49,17 @@ const Header = ({ title, subtitle }) => {
                     <NotificationBadge />
                 </IconButton>
 
-                <UserInfo>
+                <UserInfo onClick={toggleDropdown}>
                     <UserAvatar src={userPlaceholder} alt={user?.fullName || 'User'} />
                     <UserName>{user?.fullName || 'User'}</UserName>
                     <IconChevronDown size={16} />
+                    {isDropdownOpen && (
+                        <DropdownMenu>
+                            <DropdownItem>Profile</DropdownItem>
+                            <DropdownItem>Settings</DropdownItem>
+                            <DropdownItem onClick={handleLogout}>Logout</DropdownItem>
+                        </DropdownMenu>
+                    )}
                 </UserInfo>
             </HeaderRight>
         </HeaderContainer>

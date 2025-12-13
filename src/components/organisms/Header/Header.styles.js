@@ -101,6 +101,8 @@ export const UserInfo = styled.div`
     padding: 0.6rem 1.5rem 0.6rem 0.6rem;
     background-color: ${({ theme }) => theme.colors.gray.gray1};
     border-radius: 5rem;
+    position: relative;
+    cursor: pointer;
 `;
 
 export const UserAvatar = styled.img`
@@ -118,5 +120,34 @@ export const UserName = styled.span`
 
     ${({ theme }) => theme.media.md} {
         display: none;
+    }
+`;
+
+export const DropdownMenu = styled.div`
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: ${({ theme }) => theme.colors.light};
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 0.5rem 0;
+    min-width: 150px;
+    z-index: 1000;
+    margin-top: 0.5rem;
+`;
+
+export const DropdownItem = styled.div`
+    padding: 0.75rem 1rem;
+    font-size: ${({ theme }) => theme.typography.fontSize.sm};
+    color: ${({ theme }) => theme.colors.text.text1};
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background-color: ${({ theme }) => theme.colors.gray.gray1};
+    }
+
+    &:last-child {
+        color: ${({ theme }) => theme.colors.error};
     }
 `;
