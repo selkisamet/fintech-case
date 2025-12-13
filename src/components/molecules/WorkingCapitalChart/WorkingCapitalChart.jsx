@@ -69,7 +69,7 @@ const WorkingCapitalChart = () => {
             <ResponsiveContainer width="100%" height={193}>
                 <LineChart data={chartData} margin={{ left: 40 }}>
                     <CartesianGrid horizontal={false} />
-                    <YAxis tickMargin={35} tickLine={false} domain={[0, 'dataMax + 10000']} tickFormatter={(value) => `${value / 1000}K`} axisLine={false} fontSize={12} />
+                    <YAxis tickMargin={50} tickLine={false} domain={[0, 'dataMax + 10000']} tickFormatter={(value) => `${value / 1000}K`} axisLine={false} fontSize={12} />
                     <XAxis tickMargin={10} tickLine={false} dataKey="month" axisLine={false} fontSize={12} />
                     <Tooltip content={<CustomTooltip />} />
                     <Line type="monotone" dataKey="income" stroke="#29A073" strokeWidth={2} dot={false} />

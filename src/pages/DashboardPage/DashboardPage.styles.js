@@ -13,3 +13,19 @@ export const StatsGrid = styled.div`
     gap: 1rem;
   }
 `;
+
+export const ChartSection = styled.div`
+  margin-bottom: 2rem;
+
+  ${({ theme }) => theme.media.md} {
+    margin-bottom: 1.5rem;
+  }
+`;
+
+export const TransactionSection = styled.div`
+  margin-bottom: 2rem;
+
+  ${({ theme }) => theme.media.md} {
+    margin-bottom: 1.5rem;
+  }
+`;

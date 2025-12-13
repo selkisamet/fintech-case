@@ -5,7 +5,8 @@ import Card from '../../components/molecules/Card/Card';
 import IconWallet from '../../components/icons/IconWallet';
 import IconPlusWallet from '../../components/icons/IconPlusWallet';
 import WorkingCapitalChart from '../../components/molecules/WorkingCapitalChart/WorkingCapitalChart';
-import { StatsGrid } from './DashboardPage.styles';
+import RecentTransaction from '../../components/molecules/RecentTransaction/RecentTransaction';
+import { StatsGrid, ChartSection, TransactionSection } from './DashboardPage.styles';
 
 const DashboardPage = () => {
     const [stats, setStats] = useState(null);
@@ -62,7 +63,12 @@ const DashboardPage = () => {
                     hoverable
                 />
             </StatsGrid>
-            <WorkingCapitalChart />
+            <ChartSection>
+                <WorkingCapitalChart />
+            </ChartSection>
+            <TransactionSection>
+                <RecentTransaction />
+            </TransactionSection>
         </DashboardLayout>
     );
 };

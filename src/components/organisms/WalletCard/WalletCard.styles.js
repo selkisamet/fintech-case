@@ -58,24 +58,12 @@ export const CardsSection = styled.div`
     width: 100%;
     max-width: 100%;
     overflow: visible;
-
-    ${({ theme }) => theme.media.lg} {
-        height: 28rem;
-    }
-
-    ${({ theme }) => theme.media.md} {
-        height: 24rem;
-    }
-
-    ${({ theme }) => theme.media.sm} {
-        height: 20rem;
-    }
 `;
 
 export const CreditCard = styled.div`
     position: absolute;
     height: ${({ $variant }) => $variant === 'secondary' ? '17.02rem' : '20.1rem'};
-    width: ${({ $variant }) => $variant === 'secondary' ? 'min(32.04rem, 90%)' : '100%'};
+    width: ${({ $variant }) => $variant === 'secondary' ? '32.04rem' : '35.4rem'};
     max-width: 100%;
     background-color: ${({ theme }) => theme.colors.darkish};
     background: ${({ $variant }) =>
@@ -97,7 +85,7 @@ export const CreditCard = styled.div`
     `}
 
     &:hover {
-       transform: ${({ $variant }) => $variant === 'secondary' ? 'translateY(14rem) scale(1.02)' : 'translateY(-0.5rem) scale(1.02)' };
+       transform: ${({ $variant }) => $variant === 'secondary' ? 'translateY(14rem) scale(1.02)' : 'translateY(-0.5rem) scale(1.02)'};
     }
 `;
 

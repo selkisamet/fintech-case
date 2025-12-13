@@ -26,7 +26,6 @@ export const TransfersTitle = styled.h4`
 `;
 
 export const ViewAllButton = styled.button`
-    border: none;
     color: ${({ theme }) => theme.colors.secondary};
     font-size: ${({ theme }) => theme.typography.fontSize.sm};
     font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
@@ -57,6 +56,10 @@ export const TransferItem = styled.div`
 
     &:last-child {
         border-bottom: none;
+    }
+
+     &:hover {
+        background-color: ${({ theme }) => theme.colors.gray.gray1};
     }
 `;
 
