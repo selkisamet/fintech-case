@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from '../../../styles/theme';
 
 export const WalletCardContainer = styled.div`
     background-color: ${({ theme }) => theme.colors.light};
@@ -58,6 +59,22 @@ export const CardsSection = styled.div`
     width: 100%;
     max-width: 100%;
     overflow: visible;
+
+    ${({ theme }) => theme.media.sm} {
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        height: auto;
+        padding: 0 1rem;
+        gap: 1rem;
+        justify-content: flex-start;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
 `;
 
 export const CreditCard = styled.div`
@@ -79,6 +96,7 @@ export const CreditCard = styled.div`
     z-index: ${({ $variant }) => $variant === 'secondary' ? 2 : 1};
     overflow: hidden;
     box-sizing: border-box;
+    flex-shrink: 0;
 
     ${({ $variant }) => $variant === 'secondary' && `
         backdrop-filter: blur(1rem);
@@ -86,6 +104,21 @@ export const CreditCard = styled.div`
 
     &:hover {
        transform: ${({ $variant }) => $variant === 'secondary' ? 'translateY(14rem) scale(1.02)' : 'translateY(-0.5rem) scale(1.02)'};
+    }
+
+    ${({ theme }) => theme.media.sm} {
+        position: relative;
+        transform: none;
+        height: ${({ $variant }) => $variant === 'secondary' ? '18rem' : '18rem'};
+        width: ${({ $variant }) => $variant === 'secondary' ? '32rem' : '32rem'};
+        padding: ${({ $variant }) => $variant === 'secondary' ? '1.8rem 2rem' : '1.8rem 2rem'};
+        margin: 0;
+
+        background-color: ${({ $variant }) => $variant === 'secondary' ? theme.colors.darkish : ''};
+
+        &:hover {
+            transform: scale(1.02);
+        }
     }
 `;
 

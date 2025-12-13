@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import { useAuth } from '../../../context/AuthContext';
 import FormField from '../../molecules/FormField/FormField';
 import Button from '../../atoms/Button/Button';
@@ -64,17 +65,21 @@ const LoginForm = ({ onSuccess }) => {
         setApiError('');
 
         if (!validate()) {
+            toast.error('Please fill in all required fields correctly');
             return;
         }
 
         const result = await login(formData.email, formData.password);
 
         if (result.success) {
+            toast.success('Successfully logged in! Redirecting...');
             if (onSuccess) {
                 onSuccess();
             }
         } else {
-            setApiError(result.error || 'Login failed. Please try again.');
+            const errorMessage = result.error || 'Login failed. Please try again.';
+            setApiError(errorMessage);
+            toast.error(errorMessage);
         }
     };
 
@@ -88,7 +93,7 @@ const LoginForm = ({ onSuccess }) => {
             <FormFields>
                 <FormField
                     label="Email"
-                    type="email"
+                    type="text"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
