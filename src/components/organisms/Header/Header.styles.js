@@ -26,8 +26,32 @@ export const HeaderContainer = styled.header`
 
 export const HeaderLeft = styled.div`
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 1.5rem;
+
+    ${({ theme }) => theme.media.md} {
+        gap: 1rem;
+    }
+`;
+
+export const MenuButton = styled.button`
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    color: ${({ theme }) => theme.colors.text.text1};
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: ${({ theme }) => theme.colors.primary};
+    }
+
+    ${({ theme }) => theme.media.lg} {
+        display: flex;
+    }
 `;
 
 export const Title = styled.h1`

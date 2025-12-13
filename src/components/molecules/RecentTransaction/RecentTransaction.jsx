@@ -96,7 +96,7 @@ const RecentTransaction = () => {
                                     <TableCell>
                                         <TransactionInfo>
                                             <TransactionIcon>
-                                                {transaction.image ? (
+                                                {transaction.image && !transaction.image.includes('ibb.co') ? (
                                                     <img
                                                         src={transaction.image}
                                                         alt={transaction.name}

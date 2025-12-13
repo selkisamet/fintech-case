@@ -7,10 +7,10 @@ import IconMyWallet from '../../icons/IconMyWallet';
 import IconSettings from '../../icons/IconSettings';
 import IconHelp from '../../icons/IconHelp';
 import IconLogout from '../../icons/IconLogout';
-import { SidebarContainer, Nav, NavSection, BottomSection, NavItem, LogoContainer } from './Sidebar.styles';
+import { SidebarContainer, Nav, NavSection, BottomSection, NavItem, LogoContainer, Overlay } from './Sidebar.styles';
 import Logo from '../../atoms/Logo';
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen = false, onClose }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const { logout } = useAuth();
@@ -29,58 +29,63 @@ const Sidebar = () => {
 
     const handleNavigation = (path) => {
         navigate(path);
+        onClose?.();
     };
 
     const handleLogout = async () => {
         await logout();
         navigate('/login');
+        onClose?.();
     };
 
     return (
-        <SidebarContainer>
-            <LogoContainer>
-                <Logo size="medium" />
-            </LogoContainer>
-            <Nav>
-                <NavSection>
-                    {menuItems.map((item) => {
-                        const Icon = item.icon;
-                        const isActive = location.pathname === item.path;
-                        return (
-                            <NavItem
-                                key={item.id}
-                                $active={isActive}
-                                onClick={() => handleNavigation(item.path)}
-                            >
-                                <Icon size={20} />
-                                <span>{item.label}</span>
-                            </NavItem>
-                        );
-                    })}
-                </NavSection>
+        <>
+            <Overlay $isOpen={isOpen} onClick={onClose} />
+            <SidebarContainer $isOpen={isOpen}>
+                <LogoContainer>
+                    <Logo size="medium" />
+                </LogoContainer>
+                <Nav>
+                    <NavSection>
+                        {menuItems.map((item) => {
+                            const Icon = item.icon;
+                            const isActive = location.pathname === item.path;
+                            return (
+                                <NavItem
+                                    key={item.id}
+                                    $active={isActive}
+                                    onClick={() => handleNavigation(item.path)}
+                                >
+                                    <Icon size={20} />
+                                    <span>{item.label}</span>
+                                </NavItem>
+                            );
+                        })}
+                    </NavSection>
 
-                <BottomSection>
-                    {bottomItems.map((item) => {
-                        const Icon = item.icon;
-                        const isActive = location.pathname === item.path;
-                        return (
-                            <NavItem
-                                key={item.id}
-                                $active={isActive}
-                                onClick={() => handleNavigation(item.path)}
-                            >
-                                <Icon size={20} />
-                                <span>{item.label}</span>
-                            </NavItem>
-                        );
-                    })}
-                    <NavItem onClick={handleLogout}>
-                        <IconLogout size={20} />
-                        <span>Logout</span>
-                    </NavItem>
-                </BottomSection>
-            </Nav>
-        </SidebarContainer>
+                    <BottomSection>
+                        {bottomItems.map((item) => {
+                            const Icon = item.icon;
+                            const isActive = location.pathname === item.path;
+                            return (
+                                <NavItem
+                                    key={item.id}
+                                    $active={isActive}
+                                    onClick={() => handleNavigation(item.path)}
+                                >
+                                    <Icon size={20} />
+                                    <span>{item.label}</span>
+                                </NavItem>
+                            );
+                        })}
+                        <NavItem onClick={handleLogout}>
+                            <IconLogout size={20} />
+                            <span>Logout</span>
+                        </NavItem>
+                    </BottomSection>
+                </Nav>
+            </SidebarContainer>
+        </>
     );
 };
 

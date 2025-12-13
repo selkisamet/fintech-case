@@ -3,6 +3,7 @@ import { useAuth } from '../../../context/AuthContext';
 import IconSearch from '../../icons/IconSearch';
 import IconNotification from '../../icons/IconNotification';
 import IconChevronDown from '../../icons/IconChevronDown';
+import IconMenu from '../../icons/IconMenu';
 import userPlaceholder from '../../../assets/images/user.png';
 import {
     HeaderContainer,
@@ -17,9 +18,10 @@ import {
     UserName,
     DropdownMenu,
     DropdownItem,
+    MenuButton,
 } from './Header.styles';
 
-const Header = ({ title, subtitle }) => {
+const Header = ({ title, subtitle, onMenuClick }) => {
     const { user, logout } = useAuth();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -35,6 +37,9 @@ const Header = ({ title, subtitle }) => {
     return (
         <HeaderContainer>
             <HeaderLeft>
+                <MenuButton onClick={onMenuClick}>
+                    <IconMenu size={24} />
+                </MenuButton>
                 <Title>{title}</Title>
                 {subtitle && <Subtitle>{subtitle}</Subtitle>}
             </HeaderLeft>
