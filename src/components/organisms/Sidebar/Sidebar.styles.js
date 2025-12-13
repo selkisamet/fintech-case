@@ -10,6 +10,16 @@ export const SidebarContainer = styled.aside`
     position: fixed;
     left: 0;
     top: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+
+    ${({ theme }) => theme.media.lg} {
+        transform: translateX(-100%);
+
+        &.mobile-open {
+            transform: translateX(0);
+        }
+    }
 `;
 
 export const LogoContainer = styled.div`

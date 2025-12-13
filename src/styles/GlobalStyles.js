@@ -15,6 +15,8 @@ export const GlobalStyles = createGlobalStyle`
   html {
     font-size: 10px;
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   body {
@@ -24,6 +26,12 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.text.text1};
     background-color: #ffffff;
     overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  #root {
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   h1, h2, h3, h4, h5, h6 {

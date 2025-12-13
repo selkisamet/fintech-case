@@ -15,6 +15,14 @@ export const TransfersTitle = styled.h4`
     font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
     color: ${({ theme }) => theme.colors.text.text1};
     margin: 0;
+
+    ${({ theme }) => theme.media.md} {
+        font-size: 1.6rem;
+    }
+
+    ${({ theme }) => theme.media.sm} {
+        font-size: 1.4rem;
+    }
 `;
 
 export const ViewAllButton = styled.button`
@@ -42,6 +50,11 @@ export const TransferItem = styled.div`
     padding: 1.5rem 0;
     border-bottom: 1px solid ${({ theme }) => theme.colors.gray.gray2};
 
+    ${({ theme }) => theme.media.sm} {
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+
     &:last-child {
         border-bottom: none;
     }
@@ -57,6 +70,12 @@ export const TransferAvatar = styled.div`
     justify-content: center;
     font-size: 2rem;
     flex-shrink: 0;
+
+    ${({ theme }) => theme.media.sm} {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.6rem;
+    }
 `;
 
 export const TransferInfo = styled.div`

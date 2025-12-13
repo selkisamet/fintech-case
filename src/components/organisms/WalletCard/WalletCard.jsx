@@ -28,9 +28,6 @@ const WalletCard = () => {
     const [loading, setLoading] = useState(true);
     const [transfersLoading, setTransfersLoading] = useState(true);
 
-    console.log(transfers);
-
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -137,7 +134,7 @@ const WalletCard = () => {
                                     </CardDate>
                                 </CardInfo>
                                 <CardLogo>
-                                    {getCardIcon(cards[0].network, 50)}
+                                    <IconMastercard size={50} />
                                 </CardLogo>
                             </CardInfoWrap>
                         </CreditCard>

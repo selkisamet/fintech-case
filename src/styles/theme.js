@@ -42,4 +42,22 @@ export const theme = {
             bold: 700,
         },
     },
+
+    breakpoints: {
+        xs: "480px",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        xxl: "1536px",
+    },
+
+    media: {
+        xs: `@media (max-width: 480px)`,
+        sm: `@media (max-width: 640px)`,
+        md: `@media (max-width: 768px)`,
+        lg: `@media (max-width: 1024px)`,
+        xl: `@media (max-width: 1280px)`,
+        xxl: `@media (max-width: 1536px)`,
+    },
 };

@@ -5,6 +5,23 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
     align-items: center;
     padding: 3rem 4rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    @media (max-width: 1440px) {
+        padding: 2.5rem 3rem;
+    }
+
+    ${({ theme }) => theme.media.xl} {
+        padding: 2rem 2rem;
+    }
+
+    ${({ theme }) => theme.media.md} {
+        padding: 1.5rem 1rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
 `;
 
 export const HeaderLeft = styled.div`
@@ -19,6 +36,14 @@ export const Title = styled.h1`
     color: ${({ theme }) => theme.colors.text.text1};
     font-family: ${({ theme }) => theme.typography.fontFamily.primary};
     margin: 0;
+
+    ${({ theme }) => theme.media.md} {
+        font-size: 2.4rem;
+    }
+
+    ${({ theme }) => theme.media.sm} {
+        font-size: 2rem;
+    }
 `;
 
 export const Subtitle = styled.p`
@@ -31,6 +56,14 @@ export const HeaderRight = styled.div`
     display: flex;
     align-items: center;
     gap: 4.5rem;
+
+    ${({ theme }) => theme.media.md} {
+        gap: 2rem;
+    }
+
+    ${({ theme }) => theme.media.sm} {
+        gap: 1rem;
+    }
 `;
 
 export const IconButton = styled.button`
@@ -82,4 +115,8 @@ export const UserName = styled.span`
     font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
     color: ${({ theme }) => theme.colors.text.text1};
     margin: 0 3rem 0 1.2rem;
+
+    ${({ theme }) => theme.media.md} {
+        display: none;
+    }
 `;
