@@ -4,7 +4,6 @@ import { theme } from '../../../styles/theme';
 export const WalletCardContainer = styled.div`
     background-color: ${({ theme }) => theme.colors.light};
     border-radius: 1.2rem;
-    padding: 2rem 1rem;
     width: 100%;
     max-width: 100%;
     overflow: hidden;

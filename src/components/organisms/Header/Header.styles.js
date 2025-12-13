@@ -4,23 +4,14 @@ export const HeaderContainer = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3rem 4rem;
+    padding: 2rem 4rem;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
 
-    @media (max-width: 1440px) {
-        padding: 2.5rem 3rem;
-    }
-
-    ${({ theme }) => theme.media.xl} {
-        padding: 2rem 2rem;
-    }
-
-    ${({ theme }) => theme.media.md} {
-        padding: 1.5rem 1rem;
-        flex-wrap: wrap;
+    ${({ theme }) => theme.media.sm} {
         gap: 1rem;
+        padding: 2rem 2rem;
     }
 `;
 

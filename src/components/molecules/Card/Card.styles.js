@@ -32,25 +32,13 @@ export const CardTitle = styled.h3`
 
 export const CardAmount = styled.p`
   margin-top: 1.3rem;
-  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+  font-size: 1.8rem;
   font-weight: ${theme.typography.fontWeight.bold};
   color: ${theme.colors.text.text1};
   line-height: 100%;
   transition: color 0.3s ease;
   word-break: break-word;
   overflow-wrap: break-word;
-
-  @media (max-width: 1440px) {
-    font-size: 2.2rem;
-  }
-
-  ${theme.media.md} {
-    font-size: 2rem;
-  }
-
-  ${theme.media.sm} {
-    font-size: 1.8rem;
-  }
 `;
 
 

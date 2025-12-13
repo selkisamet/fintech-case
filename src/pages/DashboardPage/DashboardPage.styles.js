@@ -44,7 +44,6 @@ export const TransactionSection = styled.div`
 export const DashboardContentContainer = styled.div`
   display: flex;
   gap: 4rem;
-  padding: 0 4rem;
   flex: 1;
   width: 100%;
   max-width: 100%;
@@ -53,27 +52,22 @@ export const DashboardContentContainer = styled.div`
 
   @media (max-width: 1440px) {
     gap: 3rem;
-    padding: 0 3rem;
   }
 
   ${({ theme }) => theme.media.xl} {
     gap: 2rem;
-    padding: 0 2rem;
   }
 
   ${({ theme }) => theme.media.lg} {
     flex-direction: column;
     gap: 2rem;
-    padding: 0 2rem;
   }
 
   ${({ theme }) => theme.media.md} {
-    padding: 0 1rem;
     gap: 1.5rem;
   }
 
   ${({ theme }) => theme.media.sm} {
-    padding: 0 0.5rem;
     gap: 1rem;
   }
 `;

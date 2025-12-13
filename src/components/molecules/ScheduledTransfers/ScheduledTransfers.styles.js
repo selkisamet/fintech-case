@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 
 export const TransfersSection = styled.div`
-    margin-top: 2.5rem;
+    margin-top: 3rem;
+    
+    ${({ theme }) => theme.media.lg} {
+        padding: 1.2rem;
+        border-radius: 1.2rem;
+        border: solid 0.1rem ${({ theme }) => theme.colors.gray.gray2};
+    }
 `;
 
 export const TransfersHeader = styled.div`
