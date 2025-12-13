@@ -6,6 +6,7 @@ import IconWallet from '../../components/icons/IconWallet';
 import IconPlusWallet from '../../components/icons/IconPlusWallet';
 import WorkingCapitalChart from '../../components/molecules/WorkingCapitalChart/WorkingCapitalChart';
 import RecentTransaction from '../../components/molecules/RecentTransaction/RecentTransaction';
+import { formatCurrency } from '../../utils/formatters';
 import { StatsGrid, ChartSection, TransactionSection } from './DashboardPage.styles';
 
 const DashboardPage = () => {
@@ -39,8 +40,8 @@ const DashboardPage = () => {
                     icon={<IconWallet />}
                     title="Total Balance"
                     amount={stats?.totalBalance?.amount
-                        ? `${stats.totalBalance.currency === 'TRY' ? '₺' : '$'}${stats.totalBalance.amount.toLocaleString()}`
-                        : '₺0'
+                        ? formatCurrency(stats.totalBalance.amount, stats.totalBalance.currency)
+                        : '0,00 TL'
                     }
                     hoverable
                 />
@@ -48,8 +49,8 @@ const DashboardPage = () => {
                     icon={<IconWallet />}
                     title="Total Expense"
                     amount={stats?.totalExpense?.amount
-                        ? `${stats.totalExpense.currency === 'TRY' ? '₺' : '$'}${stats.totalExpense.amount.toLocaleString()}`
-                        : '₺0'
+                        ? formatCurrency(stats.totalExpense.amount, stats.totalExpense.currency)
+                        : '0,00 TL'
                     }
                     hoverable
                 />
@@ -57,8 +58,8 @@ const DashboardPage = () => {
                     icon={<IconPlusWallet />}
                     title="Total Savings"
                     amount={stats?.totalSavings?.amount
-                        ? `${stats.totalSavings.currency === 'TRY' ? '₺' : '$'}${stats.totalSavings.amount.toLocaleString()}`
-                        : '₺0'
+                        ? formatCurrency(stats.totalSavings.amount, stats.totalSavings.currency)
+                        : '0,00 TL'
                     }
                     hoverable
                 />

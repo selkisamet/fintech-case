@@ -20,6 +20,7 @@ import {
     TransactionDate,
 } from './RecentTransaction.styles';
 import { getRecentTransactions } from '../../../services/dashboardService';
+import { formatDate, formatCurrency } from '../../../utils/formatters';
 
 const RecentTransaction = () => {
     const [transactions, setTransactions] = useState([]);
@@ -42,22 +43,7 @@ const RecentTransaction = () => {
         fetchTransactions();
     }, []);
 
-    const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        return date.toLocaleDateString('en-US', {
-            day: '2-digit',
-            month: 'short',
-            year: 'numeric',
-        });
-    };
 
-    const formatAmount = (amount, currency) => {
-        const formattedAmount = Math.abs(amount).toLocaleString('en-US', {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-        });
-        return `${currency || '$'}${formattedAmount}`;
-    };
 
     if (loading) {
         return (
@@ -120,7 +106,7 @@ const RecentTransaction = () => {
                                     </TableCell>
                                     <TableCell>
                                         <TransactionAmount>
-                                            {formatAmount(transaction.amount, transaction.currency)}
+                                            {formatCurrency(transaction.amount, transaction.currency)}
                                         </TransactionAmount>
                                     </TableCell>
                                     <TableCell>

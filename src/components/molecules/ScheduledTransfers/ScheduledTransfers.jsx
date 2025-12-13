@@ -11,17 +11,9 @@ import {
     TransferDate,
     TransferAmount,
 } from './ScheduledTransfers.styles';
+import { formatDate } from '../../../utils/formatters';
 
 const ScheduledTransfers = ({ transfers = [], loading = false }) => {
-    const formatDate = (dateString) => {
-        return new Date(dateString).toLocaleDateString('en-US', {
-            month: 'long',
-            day: 'numeric',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
-        });
-    };
 
     if (loading) {
         return (
