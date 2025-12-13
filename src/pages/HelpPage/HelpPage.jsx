@@ -2,8 +2,8 @@ import DashboardLayout from '../../components/templates/DashboardLayout/Dashboar
 
 const HelpPage = () => {
     return (
-        <DashboardLayout title="Help" subtitle="Get help and support">
-            <h1>Help</h1>
+        <DashboardLayout title="Help Page">
+            <h1>Help Content</h1>
         </DashboardLayout>
     );
 };

@@ -2,8 +2,8 @@ import DashboardLayout from '../../components/templates/DashboardLayout/Dashboar
 
 const InvoicesPage = () => {
     return (
-        <DashboardLayout title="Invoices" subtitle="Manage your invoices">
-            <h1>Invoices</h1>
+        <DashboardLayout title="Invoices Page">
+            <h1>Invoices Content</h1>
         </DashboardLayout>
     );
 };

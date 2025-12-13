@@ -2,8 +2,8 @@ import DashboardLayout from '../../components/templates/DashboardLayout/Dashboar
 
 const ProfilePage = () => {
     return (
-        <DashboardLayout title="Profile" subtitle="Manage your profile">
-            <h1>Profile</h1>
+        <DashboardLayout title="Profile Page">
+            <h1>Profile Content</h1>
         </DashboardLayout>
     );
 };

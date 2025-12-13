@@ -2,8 +2,8 @@ import DashboardLayout from '../../components/templates/DashboardLayout/Dashboar
 
 const SettingsPage = () => {
     return (
-        <DashboardLayout title="Settings" subtitle="Manage your settings">
-            <h1>Settings</h1>
+        <DashboardLayout title="Settings Page">
+            <h1>Settings Content</h1>
         </DashboardLayout>
     );
 };

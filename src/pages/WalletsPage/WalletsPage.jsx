@@ -2,8 +2,8 @@ import DashboardLayout from '../../components/templates/DashboardLayout/Dashboar
 
 const WalletsPage = () => {
     return (
-        <DashboardLayout title="My Wallets" subtitle="Manage your wallets">
-            <h1>My Wallets</h1>
+        <DashboardLayout title="My Wallets Page">
+            <h1>My Wallets Content</h1>
         </DashboardLayout>
     );
 };
