@@ -30,9 +30,10 @@ export const ViewAllButton = styled.button`
     font-size: ${({ theme }) => theme.typography.fontSize.sm};
     font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
     cursor: pointer;
+    transition: color 0.3s ease;
 
-    &:hover {
-        text-decoration: underline;
+     &:hover {
+        color: ${({ theme }) => theme.colors.primary};
     }
 `;
 
