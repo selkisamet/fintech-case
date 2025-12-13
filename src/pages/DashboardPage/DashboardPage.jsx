@@ -4,6 +4,7 @@ import DashboardLayout from '../../components/templates/DashboardLayout/Dashboar
 import Card from '../../components/molecules/Card/Card';
 import IconWallet from '../../components/icons/IconWallet';
 import IconPlusWallet from '../../components/icons/IconPlusWallet';
+import WorkingCapitalChart from '../../components/molecules/WorkingCapitalChart/WorkingCapitalChart';
 import { StatsGrid } from './DashboardPage.styles';
 
 const DashboardPage = () => {
@@ -61,6 +62,7 @@ const DashboardPage = () => {
                     hoverable
                 />
             </StatsGrid>
+            <WorkingCapitalChart />
         </DashboardLayout>
     );
 };

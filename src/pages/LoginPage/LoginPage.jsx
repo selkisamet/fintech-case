@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import LoginForm from '../../components/organisms/LoginForm';
 import Logo from '../../components/atoms/Logo';
-import { PageContainer, LeftSection, RightSection, ContentWrapper } from './LoginPage.styles';
+import { PageContainer, LeftSection, RightSection, ContentWrapper, StyledLogo } from './LoginPage.styles';
 
 const LoginPage = () => {
     const navigate = useNavigate();
