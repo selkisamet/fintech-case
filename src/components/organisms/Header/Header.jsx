@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthContext';
 import IconSearch from '../../icons/IconSearch';
 import IconNotification from '../../icons/IconNotification';
@@ -23,10 +24,21 @@ import {
 
 const Header = ({ title, subtitle, onMenuClick }) => {
     const { user, logout } = useAuth();
+    const navigate = useNavigate();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    const handleProfile = () => {
+        navigate('/profile');
+        setIsDropdownOpen(false);
+    };
+
+    const handleSettings = () => {
+        navigate('/settings');
+        setIsDropdownOpen(false);
     };
 
     const handleLogout = () => {
@@ -60,8 +72,8 @@ const Header = ({ title, subtitle, onMenuClick }) => {
                     <IconChevronDown size={16} />
                     {isDropdownOpen && (
                         <DropdownMenu>
-                            <DropdownItem>Profile</DropdownItem>
-                            <DropdownItem>Settings</DropdownItem>
+                            <DropdownItem onClick={handleProfile}>Profile</DropdownItem>
+                            <DropdownItem onClick={handleSettings}>Settings</DropdownItem>
                             <DropdownItem onClick={handleLogout}>Logout</DropdownItem>
                         </DropdownMenu>
                     )}
