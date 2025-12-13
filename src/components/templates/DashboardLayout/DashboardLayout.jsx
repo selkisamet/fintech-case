@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import Sidebar from '../../organisms/Sidebar/Sidebar';
 import Header from '../../organisms/Header/Header';
-import WalletCard from '../../organisms/WalletCard/WalletCard';
-import { LayoutContainer, MainContent, HeaderWrapper, ContentContainer, MainArea, RightSidebar } from './DashboardLayout.styles';
+import { LayoutContainer, MainContent, HeaderWrapper, ContentContainer, MainArea } from './DashboardLayout.styles';
 
-const DashboardLayout = ({ children, title, subtitle, showRightSidebar = true }) => {
+const DashboardLayout = ({ children, title, subtitle }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const toggleSidebar = () => {
@@ -26,11 +25,6 @@ const DashboardLayout = ({ children, title, subtitle, showRightSidebar = true })
                     <MainArea>
                         {children}
                     </MainArea>
-                    {showRightSidebar && (
-                        <RightSidebar>
-                            <WalletCard />
-                        </RightSidebar>
-                    )}
                 </ContentContainer>
             </MainContent>
         </LayoutContainer>
