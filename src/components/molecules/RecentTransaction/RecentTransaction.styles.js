@@ -3,10 +3,11 @@ import styled from 'styled-components';
 export const TransactionContainer = styled.div`
     background-color: ${({ theme }) => theme.colors.light};
     border-radius: 1.2rem;
-    padding: 2rem;
+    padding: 1.5rem 2rem;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    border: solid 0.1rem ${({ theme }) => theme.colors.gray.gray2};
 
     ${({ theme }) => theme.media.md} {
         padding: 1.5rem;

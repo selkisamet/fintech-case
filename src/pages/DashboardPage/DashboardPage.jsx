@@ -7,6 +7,7 @@ import IconPlusWallet from '../../components/icons/IconPlusWallet';
 import WorkingCapitalChart from '../../components/molecules/WorkingCapitalChart/WorkingCapitalChart';
 import RecentTransaction from '../../components/molecules/RecentTransaction/RecentTransaction';
 import { formatCurrency } from '../../utils/formatters';
+import Skeleton from '../../components/atoms/Skeleton/Skeleton';
 import { StatsGrid, ChartSection, TransactionSection } from './DashboardPage.styles';
 
 const DashboardPage = () => {
@@ -28,7 +29,13 @@ const DashboardPage = () => {
     if (loading) {
         return (
             <DashboardLayout title="Dashboard">
-                <div>Loading...</div>
+                <StatsGrid>
+                    <Skeleton width="100%" height="120px" borderRadius="0.5rem" />
+                    <Skeleton width="100%" height="120px" borderRadius="0.5rem" />
+                    <Skeleton width="100%" height="120px" borderRadius="0.5rem" />
+                </StatsGrid>
+                <Skeleton width="100%" height="400px" borderRadius="1rem" />
+                <Skeleton width="100%" height="300px" borderRadius="1rem" />
             </DashboardLayout>
         );
     }

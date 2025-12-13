@@ -21,6 +21,7 @@ import IconMastercard from '../../icons/IconMastercard';
 import IconVisa from '../../icons/IconVisa';
 import ScheduledTransfers from '../../molecules/ScheduledTransfers/ScheduledTransfers';
 import { getWallet, getScheduledTransfers } from '../../../services/dashboardService';
+import Skeleton from '../../atoms/Skeleton/Skeleton';
 
 const WalletCard = () => {
     const [cards, setCards] = useState([]);
@@ -93,10 +94,14 @@ const WalletCard = () => {
         return (
             <WalletCardContainer>
                 <WalletHeader>
-                    <WalletTitle>Wallet</WalletTitle>
-                    <MenuButton>⋯</MenuButton>
+                    <Skeleton width="100px" height="24px" />
+                    <Skeleton width="24px" height="24px" style={{ marginLeft: 'auto' }} />
                 </WalletHeader>
-                <div>Loading...</div>
+                <CardsSection>
+                    <Skeleton width="320px" height="180px" borderRadius="1.5rem" />
+                    <Skeleton width="320px" height="180px" borderRadius="1.5rem" />
+                </CardsSection>
+                <Skeleton width="100%" height="200px" borderRadius="1rem" />
             </WalletCardContainer>
         );
     }

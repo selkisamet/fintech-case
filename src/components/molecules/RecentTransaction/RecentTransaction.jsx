@@ -21,6 +21,7 @@ import {
 } from './RecentTransaction.styles';
 import { getRecentTransactions } from '../../../services/dashboardService';
 import { formatDate, formatCurrency } from '../../../utils/formatters';
+import Skeleton from '../../atoms/Skeleton/Skeleton';
 
 const RecentTransaction = () => {
     const [transactions, setTransactions] = useState([]);
@@ -49,9 +50,22 @@ const RecentTransaction = () => {
         return (
             <TransactionContainer>
                 <TransactionHeader>
-                    <TransactionTitle>Recent Transaction</TransactionTitle>
+                    <Skeleton width="180px" height="24px" />
+                    <Skeleton width="80px" height="20px" style={{ marginLeft: 'auto' }} />
                 </TransactionHeader>
-                <div>Loading...</div>
+                <div style={{ padding: '1rem' }}>
+                    {Array.from({ length: 5 }).map((_, index) => (
+                        <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                            <Skeleton width="40px" height="40px" borderRadius="50%" />
+                            <div style={{ flex: 1 }}>
+                                <Skeleton width="150px" height="16px" style={{ marginBottom: '0.5rem' }} />
+                                <Skeleton width="100px" height="14px" />
+                            </div>
+                            <Skeleton width="80px" height="16px" />
+                            <Skeleton width="100px" height="16px" />
+                        </div>
+                    ))}
+                </div>
             </TransactionContainer>
         );
     }
@@ -87,8 +101,7 @@ const RecentTransaction = () => {
                                                         src={transaction.image}
                                                         alt={transaction.name}
                                                         onError={(e) => {
-                                                            e.target.style.display = 'none';
-                                                            e.target.parentElement.textContent = transaction.name?.charAt(0) || '?';
+                                                            e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNFNUU3RUIiLz4KPHBhdGggZD0iTTIwIDIwQzIyLjc2MTQgMjAgMjUgMTcuNzYxNCAyNSAxNUMyNSAxMi4yMzg2IDIyLjc2MTQgMTAgMjAgMTBDMTcuMjM4NiAxMCAxNSAxMi4yMzg2IDE1IDE1QzE1IDE3Ljc2MTQgMTcgMjAgMTdaIiBmaWxsPSIjOUNBM0FGIi8+Cjwvc3ZnPgo=';
                                                         }}
                                                     />
                                                 ) : (

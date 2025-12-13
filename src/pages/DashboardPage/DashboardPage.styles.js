@@ -15,7 +15,7 @@ export const StatsGrid = styled.div`
 `;
 
 export const ChartSection = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 
   ${({ theme }) => theme.media.md} {
     margin-bottom: 1.5rem;

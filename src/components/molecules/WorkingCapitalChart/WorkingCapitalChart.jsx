@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { ChartContainer, ChartHeader, ChartTitle, LegendContainer, LegendItem, LegendColor, LegendText, Dropdown, TooltipContainer, TooltipText } from './WorkingCapitalChart.styles';
 import { getWorkingCapital } from '../../../services/dashboardService';
+import Skeleton from '../../atoms/Skeleton/Skeleton';
 
 const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -41,7 +42,15 @@ const WorkingCapitalChart = () => {
     if (loading) {
         return (
             <ChartContainer>
-                <div>Loading chart...</div>
+                <ChartHeader>
+                    <Skeleton width="200px" height="24px" />
+                    <div style={{ display: 'flex', gap: '1rem', marginLeft: 'auto' }}>
+                        <Skeleton width="80px" height="20px" />
+                        <Skeleton width="80px" height="20px" />
+                    </div>
+                    <Skeleton width="120px" height="32px" style={{ marginLeft: 'auto' }} />
+                </ChartHeader>
+                <Skeleton width="100%" height="193px" />
             </ChartContainer>
         );
     }
