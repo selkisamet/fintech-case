@@ -1,69 +1,124 @@
-import axios from 'axios';
-import toast from 'react-hot-toast';
+import mockData from '../data/mockData.json';
 
-const BASE_URL = 'https://case.nodelabs.dev/api';
+// Mock API - Simulates API calls with local JSON data
+const api = {
+    get: async (endpoint) => {
+        // Simulate network delay
+        await new Promise(resolve => setTimeout(resolve, 300));
 
-const api = axios.create({
-    baseURL: BASE_URL,
-    timeout: 10000,
-    headers: {
-        'Content-Type': 'application/json',
-    },
-});
+        try {
+            const path = endpoint.split('/').filter(Boolean);
+            let data = mockData;
 
-// Request interceptor - Add token to headers
-api.interceptors.request.use(
-    (config) => {
-        const token = localStorage.getItem('authToken');
+            // Navigate through the JSON structure based on endpoint
+            for (const segment of path) {
+                if (data[segment] !== undefined) {
+                    data = data[segment];
+                } else {
+                    throw new Error(`Endpoint not found: ${endpoint}`);
+                }
+            }
 
-        if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
+            return {
+                data: {
+                    data: data,
+                    success: true
+                }
+            };
+        } catch (error) {
+            return Promise.reject({
+                response: {
+                    status: 404,
+                    data: {
+                        message: error.message || 'Data not found'
+                    }
+                }
+            });
         }
-
-        return config;
     },
-    (error) => {
-        return Promise.reject(error);
+
+    post: async (endpoint, body) => {
+        // Simulate network delay
+        await new Promise(resolve => setTimeout(resolve, 500));
+
+        try {
+            // Handle login
+            if (endpoint === '/users/login') {
+                const { email, password } = body;
+
+                // Check if user exists in mockData
+                const validUser = mockData.users.user1;
+
+                if (!email || !password) {
+                    throw new Error('Email and password are required');
+                }
+
+                // Validate email and password against mockData
+                if (email !== validUser.email) {
+                    throw new Error('Invalid email or password');
+                }
+
+                // In real scenario, you'd hash and compare password
+                // For mock, we'll accept any password for the valid email
+                // But you can add specific password check if needed
+                if (password.length < 6) {
+                    throw new Error('Invalid email or password');
+                }
+
+                return {
+                    data: {
+                        data: mockData.auth.login,
+                        success: true
+                    }
+                };
+            }
+
+            // Handle register
+            if (endpoint === '/users/register') {
+                const { fullName, email, password } = body;
+
+                if (!fullName || !email || !password) {
+                    throw new Error('All fields are required');
+                }
+
+                if (password.length < 6) {
+                    throw new Error('Password must be at least 6 characters');
+                }
+
+                // Check if user already exists
+                if (email === mockData.users.user1.email) {
+                    throw new Error('User with this email already exists');
+                }
+
+                return {
+                    data: {
+                        data: mockData.auth.register,
+                        success: true
+                    }
+                };
+            }
+
+            // Handle logout
+            if (endpoint === '/users/logout') {
+                return {
+                    data: {
+                        success: true
+                    }
+                };
+            }
+
+            throw new Error(`Endpoint not found: ${endpoint}`);
+        } catch (error) {
+            return Promise.reject({
+                response: {
+                    status: 400,
+                    data: {
+                        message: error.message || 'Request failed'
+                    }
+                }
+            });
+        }
     }
-);
-
-// Response interceptor - Handle errors
-api.interceptors.response.use(
-    (response) => {
-        return response;
-    },
-    (error) => {
-        const { response } = error;
-
-        // Network error (no response from server)
-        if (!response) {
-            console.error('Network error:', error.message);
-            toast.error('Network error. Please check your connection.');
-            return Promise.reject(error);
-        }
-
-        // 401 Unauthorized - Auto logout
-        if (response.status === 401) {
-            localStorage.removeItem('authToken');
-            localStorage.removeItem('user');
-            window.location.href = '/login';
-            return Promise.reject(error);
-        }
-
-        // 500+ Server errors
-        if (response.status >= 500) {
-            console.error('Server error:', response.data);
-            toast.error('A server error occurred. Please try again later.');
-        }
-        // 400-499 Client errors
-        else if (response.status >= 400) {
-            console.error('Client error:', response.data);
-            const message = response.data?.message || 'An error occurred. Please check your input.';
-            toast.error(message);
-        }
-
-        return Promise.reject(error);
-    }
-);
+};
 
 export default api;

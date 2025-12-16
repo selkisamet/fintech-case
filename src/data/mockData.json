@@ -1,0 +1,237 @@
+{
+  "users": {
+    "user1": {
+      "id": "675f8b9e123abc456def7890",
+      "fullName": "Samet SELKİ",
+      "email": "sametselki@outlook.com",
+      "password": "TestSamet123456",
+      "createdAt": "2024-12-15T10:30:00Z"
+    }
+  },
+  "auth": {
+    "login": {
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzVmOGI5ZTEyM2FiYzQ1NmRlZjc4OTAiLCJlbWFpbCI6ImRlbW9AZmludGVjaC5jb20iLCJpYXQiOjE3MzQ0MjAwMDAsImV4cCI6MTczNDUwNjQwMH0.mockSignature",
+      "user": {
+        "id": "675f8b9e123abc456def7890",
+        "fullName": "Samet SELKİ",
+        "email": "sametselki@outlook.com"
+      }
+    },
+    "register": {
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzVmOGI5ZTEyM2FiYzQ1NmRlZjc4OTAiLCJlbWFpbCI6ImRlbW9AZmludGVjaC5jb20iLCJpYXQiOjE3MzQ0MjAwMDAsImV4cCI6MTczNDUwNjQwMH0.mockSignature",
+      "user": {
+        "id": "675f8b9e123abc456def7890",
+        "fullName": "Samet SELKİ",
+        "email": "sametselki@outlook.com"
+      }
+    }
+  },
+  "financial": {
+    "summary": {
+      "totalBalance": {
+        "amount": 125430.50,
+        "currency": "USD"
+      },
+      "totalExpense": {
+        "amount": 23180.25,
+        "currency": "USD"
+      },
+      "totalSavings": {
+        "amount": 48250.00,
+        "currency": "USD"
+      }
+    },
+    "working-capital": {
+      "data": [
+        {
+          "month": "Jan",
+          "income": 85000,
+          "expense": 42000
+        },
+        {
+          "month": "Feb",
+          "income": 92000,
+          "expense": 43000
+        },
+        {
+          "month": "Mar",
+          "income": 86000,
+          "expense": 40000
+        },
+        {
+          "month": "Apr",
+          "income": 94000,
+          "expense": 45000
+        },
+        {
+          "month": "May",
+          "income": 108000,
+          "expense": 50000
+        },
+        {
+          "month": "Jun",
+          "income": 120000,
+          "expense": 52000
+        }
+      ]
+    },
+    "wallet": {
+      "cards": [
+        {
+          "id": "card_001",
+          "cardNumber": "5234567812345678",
+          "bank": "Fintech | Universal Bank",
+          "expiryMonth": 12,
+          "expiryYear": 2026,
+          "cvv": "123",
+          "balance": 125430.50,
+          "network": "mastercard",
+          "currency": "USD"
+        },
+        {
+          "id": "card_002",
+          "cardNumber": "4532123456789010",
+          "bank": "Digital | Premium Bank",
+          "expiryMonth": 8,
+          "expiryYear": 2027,
+          "cvv": "456",
+          "balance": 48250.00,
+          "network": "visa",
+          "currency": "USD"
+        }
+      ]
+    },
+    "transactions": {
+      "recent": {
+        "transactions": [
+          {
+            "id": "txn_001",
+            "name": "Spotify Premium",
+            "business": "Subscription",
+            "date": "2024-12-15T14:30:00Z",
+            "amount": 49.99,
+            "type": "Subscription",
+            "currency": "USD",
+            "image": null
+          },
+          {
+            "id": "txn_002",
+            "name": "Monthly Salary",
+            "business": "Income",
+            "date": "2024-12-14T09:00:00Z",
+            "amount": 25000.00,
+            "type": "Income",
+            "currency": "USD",
+            "image": null
+          },
+          {
+            "id": "txn_003",
+            "name": "Amazon.com",
+            "business": "Shopping",
+            "date": "2024-12-13T16:45:00Z",
+            "amount": 1299.99,
+            "type": "Shopping",
+            "currency": "USD",
+            "image": null
+          },
+          {
+            "id": "txn_004",
+            "name": "Pizza Restaurant",
+            "business": "Food & Dining",
+            "date": "2024-12-12T19:30:00Z",
+            "amount": 450.50,
+            "type": "Food",
+            "currency": "USD",
+            "image": null
+          },
+          {
+            "id": "txn_005",
+            "name": "Freelance Project",
+            "business": "Freelance",
+            "date": "2024-12-11T11:20:00Z",
+            "amount": 8500.00,
+            "type": "Income",
+            "currency": "USD",
+            "image": null
+          },
+          {
+            "id": "txn_006",
+            "name": "Electric Bill",
+            "business": "Utilities",
+            "date": "2024-12-10T10:00:00Z",
+            "amount": 387.30,
+            "type": "Bill",
+            "currency": "USD",
+            "image": null
+          },
+          {
+            "id": "txn_007",
+            "name": "Netflix",
+            "business": "Subscription",
+            "date": "2024-12-09T08:00:00Z",
+            "amount": 119.99,
+            "type": "Subscription",
+            "currency": "USD",
+            "image": null
+          },
+          {
+            "id": "txn_008",
+            "name": "Stock Dividend",
+            "business": "Investment",
+            "date": "2024-12-08T12:00:00Z",
+            "amount": 1250.00,
+            "type": "Income",
+            "currency": "USD",
+            "image": null
+          }
+        ]
+      }
+    },
+    "transfers": {
+      "scheduled": {
+        "transfers": [
+          {
+            "id": "transfer_001",
+            "name": "John Doe",
+            "date": "2024-12-20T10:00:00Z",
+            "amount": 2500.00,
+            "currency": "$",
+            "image": null
+          },
+          {
+            "id": "transfer_002",
+            "name": "Sarah Connor",
+            "date": "2024-12-18T14:00:00Z",
+            "amount": 850.00,
+            "currency": "$",
+            "image": null
+          },
+          {
+            "id": "transfer_003",
+            "name": "Electric Company",
+            "date": "2024-12-25T09:00:00Z",
+            "amount": 387.30,
+            "currency": "$",
+            "image": null
+          },
+          {
+            "id": "transfer_004",
+            "name": "Savings Account",
+            "date": "2024-12-30T08:00:00Z",
+            "amount": 5000.00,
+            "currency": "$",
+            "image": null
+          },
+          {
+            "id": "transfer_005",
+            "name": "Rent Payment",
+            "date": "2025-01-01T08:00:00Z",
+            "amount": 8000.00,
+            "currency": "$",
+            "image": null
+          }
+        ]
+      }
+    }
+  }
+}

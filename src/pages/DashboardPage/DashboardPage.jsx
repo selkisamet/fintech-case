@@ -57,7 +57,7 @@ const DashboardPage = () => {
                             title="Total Balance"
                             amount={stats?.totalBalance?.amount
                                 ? formatCurrency(stats.totalBalance.amount, stats.totalBalance.currency)
-                                : '0,00 TL'
+                                : '$0.00'
                             }
                             hoverable
                         />
@@ -66,7 +66,7 @@ const DashboardPage = () => {
                             title="Total Expense"
                             amount={stats?.totalExpense?.amount
                                 ? formatCurrency(stats.totalExpense.amount, stats.totalExpense.currency)
-                                : '0,00 TL'
+                                : '$0.00'
                             }
                             hoverable
                         />
@@ -75,7 +75,7 @@ const DashboardPage = () => {
                             title="Total Savings"
                             amount={stats?.totalSavings?.amount
                                 ? formatCurrency(stats.totalSavings.amount, stats.totalSavings.currency)
-                                : '0,00 TL'
+                                : '$0.00'
                             }
                             hoverable
                         />
